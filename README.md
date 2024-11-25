@@ -15,5 +15,6 @@ There are three types of assignments in Verilog:
 
 * Notes on concatenation
 * Notes on wire vs reg
-* Notes on using modules by name or position
 * Notes on creating a module
+* Notes on using modules by name or position
+* Notes on sign extension
