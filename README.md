@@ -11,6 +11,13 @@ There are three types of assignments in Verilog:
 * Procedural **blocking** assignment: (x = y;). Can only be used inside a procedure.
 * Procedural **non-blocking** assignment: (x <= y;). Can only be used inside a procedure.
 
+## Avoid creating latches
+* See 32-AlwaysIf2
+* https://hdlbits.01xz.net/wiki/Always_if2
+* "Watch out for Warning (10240): ... inferring latch(es)" messages. Unless the latch was intentional, it almost always indicates a bug"
+
+
+
 ## TODO
 
 * Notes on concatenation
