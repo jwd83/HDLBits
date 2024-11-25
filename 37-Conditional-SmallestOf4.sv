@@ -40,3 +40,18 @@ two-way min circuits, then compose a few of them to create a 4-way min circuit.
 You'll probably want some wire vectors for the intermediate results.
 
 */
+module top_module (
+    input [7:0] a, b, c, d,
+    output [7:0] min);//
+
+    wire [7:0] a_b;
+    wire [7:0] c_d;
+
+    always @(*) begin
+      a_b = (a < b) ? a : b;
+      c_d = (c < d) ? c : d;
+      min = (a_b < c_d) ? a_b : c_d;
+    end
+    // assign intermediate_result1 = compare? true: false;
+
+endmodule
