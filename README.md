@@ -27,10 +27,10 @@ There are three types of assignments in Verilog:
 ## TODO
 Expand notes on...
 * creating variables
-* concatenation
+* concatenation & sign extension
 * wire vs reg
 * creating a module
 * using modules by name or position
-* sign extension
-* casez/casex
+* reduction operators
 * ternary operators
+* casez/casex
