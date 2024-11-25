@@ -6,8 +6,8 @@ module top_module(
 
 
 /*
-this module implements a 32-bit carry select adder that depends on 3
-of the following 16-bit adders:
+this module implements a 32-bit carry select adder that depends on 3 of the
+following 16-bit adders:
 
 module add16 (
     input[15:0] a,

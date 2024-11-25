@@ -5,9 +5,8 @@ module top_module (
 
     /*
 
-    original solution. took me a while to figure out
-    i needed to specify the width of the packed_data
-    here.
+    original solution. took me a while to figure out i needed to specify the
+    width of the packed_data here.
 
     */
     // wire [31:0] packed_data;

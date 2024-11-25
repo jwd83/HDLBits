@@ -1,14 +1,13 @@
 // synthesis verilog_input_version verilog_2001
 
-// in a casez statement the z's are don't care bits. if the input
-// matches the pattern of the case statement, the output is assigned
-// the value of the case statement. if the input does not match any
-// of the case statements, the default statement is executed.
+// in a casez statement the z's are don't care bits. if the input matches the
+// pattern of the case statement, the output is assigned the value of the case
+// statement. if the input does not match any of the case statements, the
+// default statement is executed.
 
-// you can also use a ? in place of the z. there is also a casex
-// statement which is similar to casez but the x's are don't care
-// bits. this is redundant and hdlbits sees not much purpose to
-// use it over casez
+// you can also use a ? in place of the z. there is also a casex statement which
+// is similar to casez but the x's are don't care bits. this is redundant and
+// hdlbits sees not much purpose to use it over casez
 
 module top_module (
     input [7:0] in,
