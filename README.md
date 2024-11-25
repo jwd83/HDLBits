@@ -1,9 +1,9 @@
 # HDLBits
-This repo contains my personal solutions while working through the problems on
-HDLBits as well as some notes on Verilog.
-
-https://hdlbits.01xz.net/
-
+This repo contains my personal
+solutions
+while working through the [problems on
+HDLBits](https://hdlbits.01xz.net/wiki/Problem_sets) as well as some notes on
+Verilog. ([see my stats](https://hdlbits.01xz.net/wiki/Special:VlgStats/5CBCEE65CFD17EBB))
 
 ## Blocking vs. Non-Blocking Assignment
 
@@ -35,4 +35,7 @@ Expand notes on...
 * ternary operators
 * casez/casex
 * datatypes. integer vs int
-* ++ operator (allowed in loop controls, but not everywhere. 4o claimed it should not be used on signals that are part of the design's interface (e.g., output signals) as it can lead to synthesis issues.)
+* ++ operator (allowed in loop controls, but not everywhere. 4o claimed it
+  should not be used on signals that are part of the design's interface (e.g.,
+  output signals) as it can lead to synthesis issues.)
+* generate blocks
