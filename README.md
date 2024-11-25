@@ -1,6 +1,8 @@
 # HDLBits
-This repo contains my personal solutions to to HDLBits as well as some notes on
-Verilog
+This repo contains my personal solutions while working through the problems on
+HDLBits as well as some notes on Verilog.
+
+https://hdlbits.01xz.net/
 
 
 ## Blocking vs. Non-Blocking Assignment
@@ -24,6 +26,7 @@ There are three types of assignments in Verilog:
 
 ## TODO
 Expand notes on...
+* creating variables
 * concatenation
 * wire vs reg
 * creating a module
