@@ -14,4 +14,18 @@ module top_module(
             end
         end
     end
+
+    // the better solution from hdlbits
+
+    /*
+
+    always @(*) begin	// Combinational always block
+        out = 0;
+        for (int i=0;i<255;i++)
+            out = out + in[i];
+	end
+
+    */
+
+
 endmodule
