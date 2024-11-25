@@ -35,3 +35,4 @@ Expand notes on...
 * ternary operators
 * casez/casex
 * datatypes. integer vs int
+* ++ operator (allowed in loop controls, but not everywhere. 4o claimed it should not be used on signals that are part of the design's interface (e.g., output signals) as it can lead to synthesis issues.)
