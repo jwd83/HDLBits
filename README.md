@@ -5,10 +5,6 @@ while working through the [problems on
 HDLBits](https://hdlbits.01xz.net/wiki/Problem_sets) as well as some notes on
 Verilog. ([see my stats](https://hdlbits.01xz.net/wiki/Special:VlgStats/5CBCEE65CFD17EBB))
 
-# General Notes
-
-SystemVerilog is defined by the IEEE Standard for SystemVerilog 1800-2009
-
 ## Blocking vs. Non-Blocking Assignment
 
 There are three types of assignments in Verilog:
@@ -44,3 +40,8 @@ Expand notes on...
   should not be used on signals that are part of the design's interface (e.g.,
   output signals) as it can lead to synthesis issues.)
 * generate blocks
+
+## Resources
+[tilk.ue's Verilog circuit viewer](https://digitaljs.tilk.eu/)
+
+[IEEE Standard for SystemVerilog 1800-2009](https://www.google.com/search?q=1800-2009+pdf+-site%3Aieee.org)
