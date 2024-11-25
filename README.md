@@ -5,6 +5,10 @@ while working through the [problems on
 HDLBits](https://hdlbits.01xz.net/wiki/Problem_sets) as well as some notes on
 Verilog. ([see my stats](https://hdlbits.01xz.net/wiki/Special:VlgStats/5CBCEE65CFD17EBB))
 
+# General Notes
+
+SystemVerilog is defined by the IEEE Standard for SystemVerilog 1800-2009
+
 ## Blocking vs. Non-Blocking Assignment
 
 There are three types of assignments in Verilog:
@@ -30,6 +34,7 @@ Expand notes on...
 * concatenation & sign extension
 * wire vs reg
 * creating a module
+* out vs reg module types
 * using modules by name or position
 * reduction operators
 * ternary operators
