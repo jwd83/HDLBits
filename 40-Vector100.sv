@@ -7,7 +7,7 @@ module top_module(
 );
 
     always @(*) begin
-        for (integer i = 0; i < 100; i = i + 1) begin
+        for (int i = 0; i < 100; i = i + 1) begin
             out[i] = in[99-i];
         end
     end

@@ -34,3 +34,4 @@ Expand notes on...
 * reduction operators
 * ternary operators
 * casez/casex
+* datatypes. integer vs int
