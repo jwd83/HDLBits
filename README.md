@@ -42,16 +42,17 @@ Expand notes on...
 * generate blocks
 * SystemVerilog's primary `always` / `assign` blocks:
     * `assign` *(when always not in use)*
-      * outside of always blocks use `assign` to model simple combinational logic.
+      * outside of always blocks use `assign` to model simple combinational
+        logic.
     * `always_comb`
       * `always_comb` and `always @(*)` are equivalent in SystemVerilog but
-        `always_comb` is preferred per H&H. Use `always_comb` to model more complex
-        combinational logic.
+        `always_comb` is preferred per H&H. Use `always_comb` to model more
+        complex combinational logic.
     * `always_ff`
-      * `always_ff` behaves like always but is used exclusively to imply flipflops
-        and may cause tools to throw warnings if anything else is implied. Use
-        `always_ff @(posedge clk)` and non-blocking assignments ( <= ) to model
-        synchronous sequential logic.
+      * `always_ff` behaves like always but is used exclusively to imply
+        flipflops and may cause tools to throw warnings if anything else is
+        implied. Use `always_ff @(posedge clk)` and non-blocking assignments (
+        <= ) to model synchronous sequential logic.
 
 
 ## Resources & Further Reading
