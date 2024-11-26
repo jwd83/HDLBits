@@ -40,9 +40,16 @@ Expand notes on...
   should not be used on signals that are part of the design's interface (e.g.,
   output signals) as it can lead to synthesis issues.)
 * generate blocks
-* types of always blocks
-  * always @(*) and always_comb are equivalent in SystemVerilog but always_comb is preferred per H&H
 * Verilog vs SystemVerilog
+  * types of always blocks
+    * always_comb
+      * always_comb and always @(*) are equivalent in SystemVerilog but
+        always_comb is preferred per H&H
+    * always_ff
+      * always_ff behaves like always but is used exclusively to imply flipflops
+        and may cause tools to throw warnings if anything else is implied. Use
+        always_ff @(posedge clck) and non blocking assignments ( <= ) to model
+        synchronous sequential logic.
 
 ## Resources & Further Reading
 [HDLBits course on Verilog](https://hdlbits.01xz.net/wiki/)
