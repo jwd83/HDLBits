@@ -40,8 +40,21 @@ Expand notes on...
   should not be used on signals that are part of the design's interface (e.g.,
   output signals) as it can lead to synthesis issues.)
 * generate blocks
+* types of always blocks
+  * always @(*) and always_comb are equivalent in SystemVerilog but always_comb is preferred per H&H
+* Verilog vs SystemVerilog
 
-## Resources
+## Resources & Further Reading
+[HDLBits course on Verilog](https://hdlbits.01xz.net/wiki/)
+
+[Digital Design and Computer Architecture: RISC-V Edition by David Harris and Sarah L. Harris](https://pages.hmc.edu/harris/ddca/ddcarv.html)
+
+[Introduction to Computing Systems by Yale N. Patt and Sanjay J. Patel](https://www.amazon.com/Introduction-Computing-Systems-Gates-Beyond/dp/0072467509)
+
+[Introduction to VLSI Systems by Lynn Conway and Carver Mead](https://www.amazon.com/Introduction-VLSI-Systems-Carver-Mead/dp/0201043580)
+
 [tilk.ue's Verilog circuit viewer](https://digitaljs.tilk.eu/)
 
 [IEEE Standard for SystemVerilog 1800-2009](https://www.google.com/search?q=1800-2009+pdf+-site%3Aieee.org)
+
+[PicoRV32 - A Size-Optimized RISC-V CPU in Verilog](https://github.com/YosysHQ/picorv32)
