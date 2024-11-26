@@ -56,13 +56,20 @@ Expand notes on...
 
 
 ## Resources & Further Reading
-[HDLBits course on Verilog](https://hdlbits.01xz.net/wiki/)
 
+### Books
 [Digital Design and Computer Architecture: RISC-V Edition by David Harris and Sarah L. Harris](https://pages.hmc.edu/harris/ddca/ddcarv.html)
 
 [Introduction to Computing Systems by Yale N. Patt and Sanjay J. Patel](https://www.amazon.com/Introduction-Computing-Systems-Gates-Beyond/dp/0072467509)
 
 [Introduction to VLSI Systems by Lynn Conway and Carver Mead](https://www.amazon.com/Introduction-VLSI-Systems-Carver-Mead/dp/0201043580)
+
+[Computer Organization and Design RISC-V Edition by David A. Patterson and John L. Hennessy](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128203315)
+
+### Resources
+
+[HDLBits course on Verilog](https://hdlbits.01xz.net/wiki/)
+
 
 [tilk.ue's Verilog circuit viewer](https://digitaljs.tilk.eu/)
 
