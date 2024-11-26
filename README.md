@@ -28,7 +28,7 @@ There are three types of assignments in Verilog:
 Expand notes on...
 * creating variables
 * concatenation & sign extension
-* wire vs reg
+* wire vs reg vs logic
 * creating a module
 * out vs reg module types
 * using modules by name or position
