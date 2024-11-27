@@ -27,6 +27,7 @@ There are three types of assignments in Verilog:
 ## TODO
 Expand notes on...
 * creating variables
+* number types !b, !d, etc.
 * concatenation & sign extension
 * wire vs reg vs logic
 * creating a module
