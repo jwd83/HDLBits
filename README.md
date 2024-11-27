@@ -36,10 +36,11 @@ Expand notes on...
 * ternary operators
 * casez/casex
 * datatypes. integer vs int
+* generate blocks
+* bit slicing. See HDLbits lesson Mux256to1v and solution 65 in this repo.
 * ++ operator (allowed in loop controls, but not everywhere. 4o claimed it
   should not be used on signals that are part of the design's interface (e.g.,
   output signals) as it can lead to synthesis issues.)
-* generate blocks
 * SystemVerilog's primary `always` / `assign` blocks:
     * `assign` *(when always not in use)*
       * outside of always blocks use `assign` to model simple combinational
