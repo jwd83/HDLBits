@@ -37,6 +37,12 @@ Expand notes on...
 * casez/casex
 * datatypes. integer vs int
 * generate blocks
+* [sum of products vs product of sums](https://www.youtube.com/watch?v=t_1yugHFD0A)
+  * product of sums: typically used when you have more 0s than 1s to solve for.
+    * OR together bits of term, inverting as necessary for false result case then AND together ORed results
+  * sum of products: typically used when you have more 1s than 0s to solve for.
+    * AND together bits of term, inverting as necessary for true result case then OR together ANDed results
+  * rule of thumbs if you have more 1s than 0s in your desired output
 * bit slicing. See HDLbits lesson Mux256to1v and solution 65 in this repo.
 * ++ operator (allowed in loop controls, but not everywhere. 4o claimed it
   should not be used on signals that are part of the design's interface (e.g.,
