@@ -4,8 +4,7 @@ module top_module (
     output [3:0] mux_in
 );
 
-
-    always@(*) begin  // This is a combinational circuit
+    always_comb begin
         case ({c,d})
             2'b00: mux_in = 4'b0100;
             2'b01: mux_in = 4'b0001;
