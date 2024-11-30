@@ -29,6 +29,16 @@ The c_enable, c_load, and c_d outputs are the signals that go to the internal
 counter's enable, load, and d inputs, respectively. Their purpose is to allow
 these signals to be checked for correctness.
 
+---------------
+
+results
+
+# Hint: Output 'Q' has no mismatches.
+# Hint: Output 'c_enable' has no mismatches.
+# Hint: Output 'c_load' has 215 mismatches. First mismatch occurred at time 20.
+# Hint: Output 'c_d' has 28 mismatches. First mismatch occurred at time 5.
+# Hint: Total mismatched samples is 239 out of 445 samples
+
 */
 module top_module (
     input clk,
