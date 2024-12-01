@@ -25,6 +25,8 @@ There are three types of assignments in Verilog:
 
 
 ## TODO
+Revisit lessons
+* 103 was not well explained. I need to revisit this one.
 Expand notes on...
 * creating variables
 * number types !b, !d, etc.

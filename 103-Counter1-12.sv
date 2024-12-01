@@ -33,11 +33,22 @@ these signals to be checked for correctness.
 
 results
 
+first failure point
+
 # Hint: Output 'Q' has no mismatches.
 # Hint: Output 'c_enable' has no mismatches.
 # Hint: Output 'c_load' has 215 mismatches. First mismatch occurred at time 20.
 # Hint: Output 'c_d' has 28 mismatches. First mismatch occurred at time 5.
 # Hint: Total mismatched samples is 239 out of 445 samples
+
+second failure point
+
+# Hint: Your reset should be synchronous, but doesn't appear to be.
+# Hint: Output 'Q' has no mismatches.
+# Hint: Output 'c_enable' has no mismatches.
+# Hint: Output 'c_load' has 37 mismatches. First mismatch occurred at time 5.
+# Hint: Output 'c_d' has 28 mismatches. First mismatch occurred at time 5.
+# Hint: Total mismatched samples is 37 out of 445 samples
 
 */
 module top_module (
@@ -50,25 +61,22 @@ module top_module (
     output [3:0] c_d
 ); //
 
-    count4 the_counter (clk, c_enable, c_load, c_d /*, ... */ );
+    logic [3:0] counter_Q;
+
+    count4 the_counter (clk, c_enable, c_load, c_d, counter_Q);
 
     always_comb begin
+        Q = counter_Q;
         c_enable = enable;
-        c_load = c_enable;
-        c_d = Q;
-
+        if (reset) begin
+            c_load = 1;
+            c_d = 4'b0001;
+        end else if (enable && counter_Q == 4'b1100) begin
+            c_load = 1;
+            c_d = 4'b0001;
+        end else begin
+            c_load = 0;
+            c_d = counter_Q;
+        end
     end
-
-    always_ff @(posedge clk ) begin
-        if (reset)
-            Q <= 1;
-        else
-            if (enable)
-                if (Q == 12)
-                    Q <= 1;
-                else
-                    Q <= Q + 1;
-
-    end
-
 endmodule
