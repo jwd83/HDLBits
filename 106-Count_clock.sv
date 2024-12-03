@@ -17,4 +17,43 @@ module top_module(
     output [7:0] mm,
     output [7:0] ss);
 
+    logic [5:0] pulse;
+
+    logic [3:0] s_l, s_h, m_l, m_h, h_l, h_h;
+
+    bcd_counter second_low  (clk, reset, pulse[0], s_l);
+    bcd_counter second_high (clk, reset, pulse[1], s_h);
+    bcd_counter minute_low  (clk, reset, pulse[2], m_l);
+    bcd_counter minute_high (clk, reset, pulse[3], m_h);
+    bcd_counter hour_low    (clk, reset, pulse[4], h_l);
+    bcd_counter hour_high   (clk, reset, pulse[5], h_h);
+
+    always_ff @(posedge clk) begin
+
+
+
+    end
+
+endmodule
+
+
+module bcd_counter (
+    input clk,
+    input reset,        // Synchronous active-high reset
+    input enable,
+    output [3:0] q);
+
+
+    always_ff @(posedge clk ) begin
+        if (reset)
+            q <= 0;
+        else
+            if (enable)
+                if (q == 9)
+                    q <= 0;
+                else
+                    q <= q + 1;
+
+    end
+
 endmodule
