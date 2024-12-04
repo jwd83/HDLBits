@@ -64,10 +64,13 @@ module sixty_counter (
             // then thinking... maybe we just do a case
             // where we do like the 59 as first prio,
             // 01011001 (59 in bcd)
-            // set both back to 0
+            //  -> set both back to 0
             // xxxx1001 (any other 9 in bcd)
-            // add 1 to upper and add to lower
-            // default case is add 1 to lower
+            // -> add 1 to upper and set lower to 0
+            // default case
+            // -> add 1 to lower
+            // old code...
+
             // if (enable) begin
             //     if (lower == 9 && upper == 5) begin
             //         upper <= 0;
