@@ -17,25 +17,45 @@ module top_module(
     output [7:0] mm,
     output [7:0] ss);
 
-    logic [5:0] pulse;
+    logic [2:0] pulse;
 
-    logic [3:0] s_l, s_h, m_l, m_h, h_l, h_h;
+    sixty_counter  seconds (clk, reset, pulse[0], ss);
+    sixty_counter  minutes (clk, reset, pulse[1], mm);
+    twelve_counter hours   (clk, reset, pulse[2], hh);
 
-    bcd_counter second_low  (clk, reset, pulse[0], s_l);
-    bcd_counter second_high (clk, reset, pulse[1], s_h);
-    bcd_counter minute_low  (clk, reset, pulse[2], m_l);
-    bcd_counter minute_high (clk, reset, pulse[3], m_h);
-    bcd_counter hour_low    (clk, reset, pulse[4], h_l);
-    bcd_counter hour_high   (clk, reset, pulse[5], h_h);
-
-    // this seems messy... scrap it and maybe make a
-    // sixty counter and twelve counter and do
-    // twelve, sixty, sixty
+    // b01011001 is 59 in bcd
+    // b00010010 is 12 in bcd
+    // b00010001 is 11 in bcd
 
     always_ff @(posedge clk) begin
-
-        pos_clock <= pos_clock + 1;
-
+        if (reset) begin
+            pulse <= 3'b000;
+            pm <= 0;
+        end else begin
+            if (enable) begin
+                casez ({hh, mm, ss})
+                    // 11:59:59
+                    //     1   1   5   9   5   9
+                    24'b000100010101100101011001: begin
+                        pulse <= 3'b111;
+                        pm <= ~pm;
+                    end
+                    // z:59:59
+                    //     z   z   5   9   5   9
+                    24'bzzzzzzzz0101100101011001: begin
+                        pulse <= 3'b111;
+                    end
+                    // any:any:59
+                    //     z   z   z   z   5   9
+                    24'bzzzzzzzzzzzzzzzz01011001: begin
+                        pulse <= 3'b011;
+                    end
+                    default: begin
+                        pulse <= 3'b001;
+                    end
+                endcase
+            end
+        end
     end
 
 endmodule
