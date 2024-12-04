@@ -32,7 +32,7 @@ module top_module(
             pulse <= 3'b000;
             pm <= 0;
         end else begin
-            if (enable) begin
+            if (ena) begin
                 casez ({hh, mm, ss})
                     // 11:59:59
                     //     1   1   5   9   5   9
@@ -54,6 +54,8 @@ module top_module(
                         pulse <= 3'b001;
                     end
                 endcase
+            end else begin
+                pulse <= 3'b000;
             end
         end
     end
