@@ -28,6 +28,10 @@ module top_module(
     bcd_counter hour_low    (clk, reset, pulse[4], h_l);
     bcd_counter hour_high   (clk, reset, pulse[5], h_h);
 
+    // this seems messy... scrap it and maybe make a
+    // sixty counter and twelve counter and do
+    // twelve, sixty, sixty
+
     always_ff @(posedge clk) begin
 
 
@@ -36,6 +40,13 @@ module top_module(
 
 endmodule
 
+module sixty_counter ()
+
+endmodule
+
+module twelve_counter ()
+
+endmodule
 
 module bcd_counter (
     input clk,
