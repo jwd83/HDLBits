@@ -34,18 +34,69 @@ module top_module(
 
     always_ff @(posedge clk) begin
 
-
+        pos_clock <= pos_clock + 1;
 
     end
 
 endmodule
 
-module sixty_counter ()
+module sixty_counter (
+    input clk,
+    input reset,        // Synchronous active-high reset
+    input enable,
+    output [7:0] q);
 
+    logic [3:0] lower, upper;
+
+    always_comb begin
+        q = {upper, lower};
+    end
+
+
+    always_ff @(posedge clk ) begin
+        if (reset) begin
+            upper <= 0;
+            lower <= 0;
+        end else begin
+
+
+            // started writing this..
+            // then thinking... maybe we just do a case
+            // where we do like the 59 as first prio,
+            // 01011001 (59 in bcd)
+            // set both back to 0
+            // xxxx1001 (any other 9 in bcd)
+            // add 1 to upper and add to lower
+            // default case is add 1 to lower
+            // if (enable) begin
+            //     if (lower == 9 && upper == 5) begin
+            //         upper <= 0;
+            //         lower <= 0;
+            //     end elbegin
+
+            //     end
+            // end
+    end
 endmodule
 
-module twelve_counter ()
+module twelve_counter (
+    input clk,
+    input reset,        // Synchronous active-high reset
+    input enable,
+    output [3:0] q);
 
+
+    always_ff @(posedge clk ) begin
+        if (reset)
+            q <= 0;
+        else
+            if (enable)
+                if (q == 9)
+                    q <= 0;
+                else
+                    q <= q + 1;
+
+    end
 endmodule
 
 module bcd_counter (
