@@ -58,27 +58,23 @@ module sixty_counter (
             upper <= 0;
             lower <= 0;
         end else begin
-
-
-            // started writing this..
-            // then thinking... maybe we just do a case
-            // where we do like the 59 as first prio,
-            // 01011001 (59 in bcd)
-            //  -> set both back to 0
-            // xxxx1001 (any other 9 in bcd)
-            // -> add 1 to upper and set lower to 0
-            // default case
-            // -> add 1 to lower
-            // old code...
-
-            // if (enable) begin
-            //     if (lower == 9 && upper == 5) begin
-            //         upper <= 0;
-            //         lower <= 0;
-            //     end elbegin
-
-            //     end
-            // end
+            casez (q)
+                // 59 in bcd
+                8'b01011001: begin
+                    upper <= 0;
+                    lower <= 0;
+                end
+                // z9 in bcd (any other 9)
+                8'bzzzz1001: begin
+                    upper <= upper + 1;
+                    lower <= 0;
+                end
+                // default
+                default: begin
+                    lower <= lower + 1;
+                end
+            endcase
+        end
     end
 endmodule
 
@@ -86,39 +82,38 @@ module twelve_counter (
     input clk,
     input reset,        // Synchronous active-high reset
     input enable,
-    output [3:0] q);
+    output [7:0] q);
 
 
-    always_ff @(posedge clk ) begin
-        if (reset)
-            q <= 0;
-        else
-            if (enable)
-                if (q == 9)
-                    q <= 0;
-                else
-                    q <= q + 1;
+    logic [3:0] lower, upper;
 
-    end
-endmodule
-
-module bcd_counter (
-    input clk,
-    input reset,        // Synchronous active-high reset
-    input enable,
-    output [3:0] q);
-
-
-    always_ff @(posedge clk ) begin
-        if (reset)
-            q <= 0;
-        else
-            if (enable)
-                if (q == 9)
-                    q <= 0;
-                else
-                    q <= q + 1;
-
+    always_comb begin
+        q = {upper, lower};
     end
 
+    always_ff @(posedge clk ) begin
+        if (reset) begin
+            upper <= 4'b0001;
+            lower <= 4'b0010;
+        end else begin
+            if (enable) begin
+                casez (q)
+                    // 12 in bcd (0001 0010) loop back to zero
+                    8'b00010010: begin
+                        upper <= 0;
+                        lower <= 0;
+                    end
+                    // z9 in bcd increment upper and reset lower
+                    8'bzzzz1001: begin
+                        upper <= upper + 1;
+                        lower <= 0;
+                    end
+                    // default
+                    default: begin
+                        lower <= lower + 1;
+                    end
+                endcase
+            end
+        end
+    end
 endmodule
