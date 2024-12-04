@@ -17,48 +17,38 @@ module top_module(
     output [7:0] mm,
     output [7:0] ss);
 
+    // b01011001 is 59 in bcd
+    // b00010010 is 12 in bcd
+    // b00010001 is 11 in bcd
+
     logic [2:0] pulse;
 
     sixty_counter  seconds (clk, reset, pulse[0], ss);
     sixty_counter  minutes (clk, reset, pulse[1], mm);
     twelve_counter hours   (clk, reset, pulse[2], hh);
 
-    // b01011001 is 59 in bcd
-    // b00010010 is 12 in bcd
-    // b00010001 is 11 in bcd
 
     always_ff @(posedge clk) begin
         if (reset) begin
-            pulse <= 3'b000;
             pm <= 0;
         end else begin
-            if (ena) begin
-                casez ({hh, mm, ss})
-                    // 11:59:59
-                    //     1   1   5   9   5   9
-                    24'b000100010101100101011001: begin
-                        pulse <= 3'b111;
-                        pm <= ~pm;
-                    end
-                    // z:59:59
-                    //     z   z   5   9   5   9
-                    24'bzzzzzzzz0101100101011001: begin
-                        pulse <= 3'b111;
-                    end
-                    // any:any:59
-                    //     z   z   z   z   5   9
-                    24'bzzzzzzzzzzzzzzzz01011001: begin
-                        pulse <= 3'b011;
-                    end
-                    default: begin
-                        pulse <= 3'b001;
-                    end
-                endcase
-            end else begin
-                pulse <= 3'b000;
+            if (
+                (ena) &                 // if enabled and..
+                (hh == 8'b00010001) &   // 11 in bcd and..
+                (mm == 8'b01011001) &   // 59 in bcd and..
+                (ss == 8'b01011001)     // 59 in bcd
+             ) begin
+                pm <= ~pm;
             end
         end
     end
+
+    always_comb begin
+        pulse[0] = ena;
+        pulse[1] = (ss == 8'b01011001) & ena;
+        pulse[2] = (mm == 8'b01011001) & (ss == 8'b01011001) & ena;
+    end
+
 
 endmodule
 
@@ -80,22 +70,24 @@ module sixty_counter (
             upper <= 0;
             lower <= 0;
         end else begin
-            casez (q)
-                // 59 in bcd
-                8'b01011001: begin
-                    upper <= 0;
-                    lower <= 0;
-                end
-                // z9 in bcd (any other 9)
-                8'bzzzz1001: begin
-                    upper <= upper + 1;
-                    lower <= 0;
-                end
-                // default
-                default: begin
-                    lower <= lower + 1;
-                end
-            endcase
+            if (enable) begin
+                casez (q)
+                    // 59 in bcd
+                    8'b01011001: begin
+                        upper <= 0;
+                        lower <= 0;
+                    end
+                    // z9 in bcd (any other 9)
+                    8'bzzzz1001: begin
+                        upper <= upper + 1;
+                        lower <= 0;
+                    end
+                    // default
+                    default: begin
+                        lower <= lower + 1;
+                    end
+                endcase
+            end
         end
     end
 endmodule
@@ -123,7 +115,7 @@ module twelve_counter (
                     // 12 in bcd (0001 0010) loop back to zero
                     8'b00010010: begin
                         upper <= 0;
-                        lower <= 0;
+                        lower <= 1;
                     end
                     // z9 in bcd increment upper and reset lower
                     8'bzzzz1001: begin
