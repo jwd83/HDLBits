@@ -1,4 +1,5 @@
 # HDLBits
+
 This repo contains my personal
 solutions
 while working through the [problems on
@@ -17,15 +18,16 @@ There are three types of assignments in Verilog:
   procedure.
 
 ## Avoid creating latches
+
 * See 32-AlwaysIf2
-* https://hdlbits.01xz.net/wiki/Always_if2
+* <https://hdlbits.01xz.net/wiki/Always_if2>
 * "Watch out for Warning (10240): ... inferring latch(es)" messages. Unless the
   latch was intentional, it almost always indicates a bug"
 
-
-
 ## TODO
+
 Revisit lessons
+
 * 103 was not well explained. I need to revisit this one.
 Expand notes on...
 * creating variables
@@ -51,23 +53,24 @@ Expand notes on...
   should not be used on signals that are part of the design's interface (e.g.,
   output signals) as it can lead to synthesis issues.)
 * SystemVerilog's primary `always` / `assign` blocks:
-    * `assign` *(when always not in use)*
-      * outside of always blocks use `assign` to model simple combinational
+  * `assign` *(when always not in use)*
+    * outside of always blocks use `assign` to model simple combinational
         logic.
-    * `always_comb`
-      * `always_comb` and `always @(*)` are equivalent in SystemVerilog but
+  * `always_comb`
+    * `always_comb` and `always @(*)` are equivalent in SystemVerilog but
         `always_comb` is preferred per H&H. Use `always_comb` to model more
         complex combinational logic.
-    * `always_ff`
-      * `always_ff` behaves like always but is used exclusively to imply
+  * `always_ff`
+    * `always_ff` behaves like always but is used exclusively to imply
         flipflops and may cause tools to throw warnings if anything else is
         implied. Use `always_ff @(posedge clk)` and non-blocking assignments (
         <= ) to model synchronous sequential logic.
-
+* Linear Feedback Shift Register <https://www.youtube.com/watch?v=Ks1pw1X22y4>
 
 ## Resources & Further Reading
 
 ### Books
+
 [Digital Design and Computer Architecture: RISC-V Edition by David Harris and Sarah L. Harris](https://pages.hmc.edu/harris/ddca/ddcarv.html)
 
 [Introduction to Computing Systems by Yale N. Patt and Sanjay J. Patel](https://www.amazon.com/Introduction-Computing-Systems-Gates-Beyond/dp/0072467509)
@@ -79,7 +82,6 @@ Expand notes on...
 ### Resources
 
 [HDLBits course on Verilog](https://hdlbits.01xz.net/wiki/)
-
 
 [tilk.ue's Verilog circuit viewer](https://digitaljs.tilk.eu/)
 
