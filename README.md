@@ -1,9 +1,9 @@
 # HDLBits
 
-This repo contains my personal
-solutions
-while working through the [problems on
-HDLBits](https://hdlbits.01xz.net/wiki/Problem_sets) as well as some notes on
+## (https://github.com/jwd83/hdlbits)[https://github.com/jwd83/hdlbits]
+
+This repo contains my personal solutions while working through the
+[problems on HDLBits](https://hdlbits.01xz.net/wiki/Problem_sets) as well as some notes on
 Verilog. ([see my stats](https://hdlbits.01xz.net/wiki/Special:VlgStats/5CBCEE65CFD17EBB))
 
 ## Blocking vs. Non-Blocking Assignment
@@ -53,8 +53,8 @@ Expand notes on...
   should not be used on signals that are part of the design's interface (e.g.,
   output signals) as it can lead to synthesis issues.)
 * SystemVerilog's primary `always` / `assign` blocks:
-  * `assign` *(when always not in use)*
-    * outside of always blocks use `assign` to model simple combinational
+  * `assign` *(outside of always blocks)*
+    * When outside of an always blocks use `assign` to model simple combinational
         logic.
   * `always_comb`
     * `always_comb` and `always @(*)` are equivalent in SystemVerilog but
