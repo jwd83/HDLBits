@@ -4,7 +4,7 @@
 
 This repo contains my personal solutions while working through the
 [problems on HDLBits](https://hdlbits.01xz.net/wiki/Problem_sets) as well as some notes on
-Verilog. ([see my stats](https://hdlbits.01xz.net/wiki/Special:VlgStats/5CBCEE65CFD17EBB))
+Verilog in late 2024. ([see my stats](https://hdlbits.01xz.net/wiki/Special:VlgStats/5CBCEE65CFD17EBB))
 
 ## Blocking vs. Non-Blocking Assignment
 
