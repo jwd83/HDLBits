@@ -67,15 +67,15 @@ Expand notes on...
         <= ) to model synchronous sequential logic.
 * Linear Feedback Shift Register <https://www.youtube.com/watch?v=Ks1pw1X22y4>
 
-## Resources & Further Reading
+## Supplemental Resources & Further Reading
 
 ### Books
 
-[Digital Design and Computer Architecture: RISC-V Edition by David Harris and Sarah L. Harris](https://pages.hmc.edu/harris/ddca/ddcarv.html)
+[Digital Design and Computer Architecture: RISC-V Edition by David Harris and Sarah L. Harris](https://pages.hmc.edu/harris/ddca/ddcarv.html) - This book covers RISC-V but there are editions for MIPS and ARM by the same authors. They are very similar with architecture specific information differences in later parts of the book. This book covers design in both SystemVerilog and VHDL. It is widely referenced in Onur Mutlu's courses and lectures at ETH in Zurich which are streamed and archived online.
 
-[Introduction to Computing Systems by Yale N. Patt and Sanjay J. Patel](https://www.amazon.com/Introduction-Computing-Systems-Gates-Beyond/dp/0072467509)
+[Introduction to Computing Systems by Yale N. Patt and Sanjay J. Patel](https://www.amazon.com/Introduction-Computing-Systems-Gates-Beyond/dp/0072467509) - The other heavily referenced book in Onur Mutlu's ETH lectures. Similar to the above DDCA by H&H but they both fill in each other's gaps.
 
-[Introduction to VLSI Systems by Lynn Conway and Carver Mead](https://www.amazon.com/Introduction-VLSI-Systems-Carver-Mead/dp/0201043580)
+[Introduction to VLSI Systems by Lynn Conway and Carver Mead](https://www.amazon.com/Introduction-VLSI-Systems-Carver-Mead/dp/0201043580) - The book that started the Conway-Mead revolution.
 
 [Computer Organization and Design RISC-V Edition by David A. Patterson and John L. Hennessy](https://www.amazon.com/Computer-Organization-Design-RISC-V-Architecture/dp/0128203315)
 
@@ -87,4 +87,4 @@ Expand notes on...
 
 [IEEE Standard for SystemVerilog 1800-2009](https://www.google.com/search?q=1800-2009+pdf+-site%3Aieee.org)
 
-[PicoRV32 - A Size-Optimized RISC-V CPU in Verilog](https://github.com/YosysHQ/picorv32)
+[PicoRV32 - A Size-Optimized RISC-V CPU in Verilog](https://github.com/YosysHQ/picorv32) See folder 999-ReferenceMisc for a copy of this.
