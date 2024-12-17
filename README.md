@@ -88,3 +88,7 @@ Expand notes on...
 [IEEE Standard for SystemVerilog 1800-2009](https://www.google.com/search?q=1800-2009+pdf+-site%3Aieee.org)
 
 [PicoRV32 - A Size-Optimized RISC-V CPU in Verilog](https://github.com/YosysHQ/picorv32) See folder 999-ReferenceMisc for a copy of this.
+
+[Sahaj Sarup's Simple 8 Bit CPU](https://gitlab.com/ric96/ice-core/-/blob/8bit/core.v)
+
+...and lastly [my initial softcore CPU projects](https://github.com/jwd83/88bit)
